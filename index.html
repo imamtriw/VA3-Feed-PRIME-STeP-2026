@@ -451,6 +451,94 @@
       .doc-card h3{font-size:1rem}
       .doc-card p{font-size:.8rem}
     }
+    /* Editorial corporate redesign */
+    :root{
+      color-scheme:light;
+      --navy:#123b35;--navy-2:#1c5147;--blue:#477c73;--blue-soft:#a9c8bc;
+      --green:#b8d866;--green-2:#d8e9a0;--green-deep:#47673b;
+      --white:#f5f4ed;--muted:#dbe1d6;--card:#fffefa;--line:rgba(27,57,49,.14);
+      --shadow:0 18px 50px rgba(24,48,40,.10);--radius:4px;
+    }
+    body{color:#20332d;background:#f4f2e9;font-family:"Manrope",sans-serif;letter-spacing:0}
+    .site-header{position:absolute;background:#f4f2e9;border-bottom:1px solid rgba(32,51,45,.13)}
+    .site-header.scrolled{position:fixed;background:rgba(244,242,233,.94);border-color:rgba(32,51,45,.12);box-shadow:0 8px 24px rgba(32,51,45,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .nav{height:82px;width:min(1320px,90%);justify-content:space-between}
+    .brand{gap:11px;color:#20332d}
+    .brand-mark{width:42px;height:42px;border-radius:50%;color:#f4f2e9;background:#17483e;box-shadow:none;border:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:17px}
+    .brand span{color:#20332d;font-size:.94rem;letter-spacing:.02em}
+    .brand small{color:#748077;font-size:.58rem;letter-spacing:.09em;text-transform:uppercase}
+    .header-note{display:flex;align-items:center;gap:20px;color:#68756c;font-size:.65rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .header-note a{color:#17483e;padding-bottom:5px;border-bottom:1px solid #9daf7b}
+    .hero{display:block;height:auto;min-height:0;margin:0;padding:142px 0 0;overflow:visible;background:#f4f2e9;border:0}
+    .hero::before{display:none}
+    .hero-inner{position:static;transform:none;width:min(900px,88%);margin:0 auto;padding:0 0 48px;text-align:center}
+    .hero-content{gap:18px;padding:0}
+    .hero-kicker,.kicker{color:#687f4c;font-size:.64rem;font-weight:800;letter-spacing:.2em}
+    .hero-kicker::before{content:"";display:block;width:1px;height:30px;margin:0 auto 17px;background:#a6b78c}
+    .hero h1{color:#163b34;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(3.4rem,7.5vw,7rem);font-weight:500;letter-spacing:-.025em;line-height:.83;text-shadow:none;text-transform:none}
+    .hero-title-main em{color:#68814c;font-weight:500}
+    .hero-tag{color:#536359;font-size:.78rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;max-width:none}
+    .hero-tag::before{width:38px;height:1px;margin:0 auto 17px;background:#a6b78c}
+    .hero-tag span{color:#536359}
+    .hero-sub{max-width:39em;color:#68756c;font-size:.98rem;line-height:1.8;text-shadow:none;font-weight:400}
+    .hero-action{display:inline-flex;align-items:center;gap:14px;margin-top:8px;padding:13px 19px;color:#f8f6ef;background:#17483e;border:1px solid #17483e;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:background .2s ease,transform .2s ease}
+    .hero-action:hover{background:#286154;transform:translateY(-2px)}
+    .hero-action span{font-size:1rem;font-weight:400}
+    .hero-image-wrap{position:relative;width:100%;overflow:hidden;background:#173c35}
+    .hero-image{display:block;width:100%;height:auto;aspect-ratio:3.45/1;object-fit:cover;object-position:center 55%}
+    .hero-image-caption{position:absolute;right:5%;bottom:18px;color:white;font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+    .section{width:min(1160px,88%);padding:100px 0}
+    .section.first{padding-top:91px;padding-bottom:108px}
+    .docs-section{background:#e9ede3}
+    .section-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:24px;max-width:none;margin:0 auto 38px;text-align:left}
+    .section-head .kicker{grid-column:1/-1;margin:0 0 -13px}
+    .section-head h2{margin:0;color:#173d35;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(3rem,5vw,5.2rem);font-weight:500;letter-spacing:0;line-height:.9}
+    .lead{max-width:33em;color:#68756c;font-size:.92rem;line-height:1.8}
+    .directory-tools{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 18px;padding:14px 0;border-top:1px solid rgba(32,51,45,.18);border-bottom:1px solid rgba(32,51,45,.18)}
+    .directory-count{color:#69756b;font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .directory-count strong{color:#173d35;font-size:.78rem}
+    .directory-search{display:flex;align-items:center;gap:10px;width:min(290px,48%);border-bottom:1px solid #9aa799;padding:7px 0;color:#506158}
+    .directory-search svg{width:16px;height:16px;flex:none}
+    .directory-search input{width:100%;border:0;outline:0;background:transparent;color:#20332d;font:500 .78rem "Manrope",sans-serif}
+    .directory-search input::placeholder{color:#849087}
+    .docs-grid{width:100%;max-width:none;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(32,51,45,.14);border:1px solid rgba(32,51,45,.14)}
+    .doc-card{min-height:164px;align-items:flex-start;gap:15px;padding:22px 21px;border:0;border-radius:0;background:#f7f6f0;box-shadow:none;transition:background .22s ease,transform .22s ease}
+    .doc-card::before{left:0;top:0;bottom:auto;width:100%;height:2px;background:#8ba366;transform:scaleX(0);transform-origin:left}
+    .doc-card:hover,.doc-card:focus-visible{transform:none;background:#fffefa;border-color:transparent;box-shadow:none}
+    .doc-card:hover::before,.doc-card:focus-visible::before{transform:scaleX(1)}
+    .doc-card:active,.doc-card.clicked{transform:scale(.99);box-shadow:inset 0 0 0 1px rgba(71,103,59,.2)}
+    .doc-icon{flex:0 0 36px;width:36px;height:36px;border-radius:50%;color:#526b43;background:#e8eddd;border:0;font-size:.72rem;font-weight:800}
+    .doc-card h3{margin:3px 0 8px;color:#203a33;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.48rem;font-weight:600;letter-spacing:0;line-height:1}
+    .doc-card p{color:#788178;font-size:.72rem;line-height:1.6}
+    .arrow{color:#73806d;font-size:1rem}
+    .doc-card:hover .arrow{color:#47673b;transform:translate(2px,-2px)}
+    .empty-state{display:none;padding:35px 15px;color:#68756c;text-align:center;font-size:.86rem}
+    .empty-state.visible{display:block}
+    footer{padding:35px 0 39px;background:#173d35;border:0}
+    .footer-inner{width:min(1160px,88%)}
+    .footer-brand{color:#f2f2e9;font-size:.9rem;letter-spacing:.04em}
+    .footer-brand small,.footer-note{color:#b7c5b8}
+    .footer-note{font-size:.68rem;letter-spacing:.04em}
+    .toast{border-radius:2px;background:#173d35;border-color:rgba(216,233,160,.48);color:#f1f2e8}
+    .reveal{opacity:1;transform:none}
+    .js-ready .reveal{opacity:0;transform:translateY(14px)}
+    .js-ready .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){.nav{height:74px}.hero{padding-top:126px}.hero-image{aspect-ratio:2.6/1}.section-head{grid-template-columns:1fr;gap:15px}.section-head .kicker{margin-bottom:-5px}.docs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){
+      .nav{width:88%;height:70px}.brand-mark{width:37px;height:37px}.brand{gap:9px}.brand span{font-size:.85rem}.brand small{font-size:.5rem;letter-spacing:.06em}
+      .header-note{font-size:0;gap:0}.header-note a{font-size:.58rem}
+      .hero{padding-top:113px}.hero-inner{width:88%;padding-bottom:34px}.hero-content{gap:15px}
+      .hero-kicker{font-size:.56rem;letter-spacing:.17em}.hero-kicker::before{height:22px;margin-bottom:12px}
+      .hero h1{font-size:clamp(3rem,14vw,4.4rem);line-height:.84;letter-spacing:-.02em}
+      .hero-tag{font-size:.59rem;letter-spacing:.11em;line-height:1.6}.hero-tag::before{margin-bottom:13px}
+      .hero-sub{font-size:.84rem;line-height:1.7}.hero-action{padding:12px 15px;font-size:.61rem}
+      .hero-image{aspect-ratio:1.15/1;object-position:18% center}.hero-image-caption{right:5%;bottom:12px;font-size:.48rem}
+      .section{width:88%;padding:68px 0}.section.first{padding:69px 0 76px}.section-head{margin-bottom:27px}.section-head h2{font-size:3.45rem}.lead{font-size:.83rem}
+      .directory-tools{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:14px}.directory-search{width:100%}
+      .docs-grid{grid-template-columns:1fr}.doc-card{min-height:106px;padding:18px 16px;align-items:center}.doc-card h3{font-size:1.4rem}
+      .footer-inner{align-items:flex-start;gap:20px}.footer-note{text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.js-ready .reveal{opacity:1;transform:none}}
   </style>
 
 
@@ -464,6 +552,7 @@
           <small>Varuna Aquaculture Triple-Impact Feed</small>
         </div>
       </a>
+      <div class="header-note"><span>Prime STeP · 2026</span><a href="#dokumen">Ruang proyek&nbsp; ↓</a></div>
     </nav>
   </header>
 
@@ -480,7 +569,12 @@
             Solusi cerdas untuk budidaya ikan yang lebih berkelanjutan melalui pemanfaatan
             limbah organik lokal menjadi pakan ikan bernilai tambah.
           </p>
+          <a class="hero-action" href="#dokumen">Jelajahi folder proyek <span>↘</span></a>
         </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="assets/va3-feed-hero.jpg" alt="Budidaya ikan dan pemberian pakan VA3-Feed di kolam saat matahari terbenam">
+        <span class="hero-image-caption">Inovasi pakan · Dampak berkelanjutan</span>
       </div>
     </section>
 
@@ -492,6 +586,14 @@
           Pilih menu untuk membuka folder Google Drive terkait administrasi,
           proposal, keuangan, kegiatan, data, luaran, dokumentasi, panduan, dan data mahasiswa.
         </p>
+      </div>
+
+      <div class="directory-tools">
+        <div class="directory-count"><strong id="visibleCount">09</strong> folder proyek</div>
+        <label class="directory-search" for="folderSearch">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="folderSearch" type="search" placeholder="Cari folder proyek" autocomplete="off">
+        </label>
       </div>
 
       <div class="docs-grid">
@@ -523,6 +625,7 @@
           <div class="doc-icon">⌁</div><div><h3>Data Mahasiswa</h3><p>Dokumen dan data mahasiswa</p></div><span class="arrow">→</span>
         </a>
       </div>
+      <p class="empty-state" id="emptyState" role="status">Folder yang cocok tidak ditemukan.</p>
     </section>
   </main>
 
@@ -542,6 +645,7 @@
   <div class="toast" id="toast">Membuka dokumen…</div>
 
   <script>
+    document.documentElement.classList.add('js-ready');
     const header = document.getElementById('header');
     const toggle = document.getElementById('menuToggle');
     const toast = document.getElementById('toast');
@@ -573,6 +677,21 @@
     }, { threshold: 0.18 });
 
     revealItems.forEach((item) => revealObserver.observe(item));
+
+    const folderSearch = document.getElementById('folderSearch');
+    const visibleCount = document.getElementById('visibleCount');
+    const emptyState = document.getElementById('emptyState');
+    folderSearch.addEventListener('input', () => {
+      const query = folderSearch.value.trim().toLocaleLowerCase('id');
+      let count = 0;
+      document.querySelectorAll('.doc-card').forEach((card) => {
+        const matches = card.textContent.toLocaleLowerCase('id').includes(query);
+        card.hidden = !matches;
+        if (matches) count += 1;
+      });
+      visibleCount.textContent = String(count).padStart(2, '0');
+      emptyState.classList.toggle('visible', count === 0);
+    });
   </script>
 
 
