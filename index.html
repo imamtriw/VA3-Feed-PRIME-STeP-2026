@@ -1,0 +1,580 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>VA3-Feed PRIME STeP 2026</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap">
+  <style>
+    :root{
+      color-scheme:dark;
+      --navy:#061a38;
+      --navy-2:#0b2c58;
+      --blue:#0e5a9c;
+      --blue-soft:#7ec8ff;
+      --green:#7adb1d;
+      --green-2:#b8ff59;
+      --green-deep:#3f8f0b;
+      --white:#f4f9ff;
+      --muted:#d7e6f7;
+      --card:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.12);
+      --shadow:0 26px 60px rgba(0,0,0,.25);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope", "Segoe UI", sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(circle at top right, rgba(120, 221, 31, 0.14), transparent 26%),
+        radial-gradient(circle at top left, rgba(21, 120, 214, 0.18), transparent 28%),
+        linear-gradient(180deg,#051628 0%,#071c38 38%,#041323 100%);
+      min-height:100vh;
+      letter-spacing:-0.015em;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{max-width:100%;display:block}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .site-header{
+      position:fixed;
+      z-index:1000;
+      top:0;left:0;right:0;
+      padding-top:env(safe-area-inset-top,0px);
+      background:transparent;
+      border-bottom:1px solid transparent;
+      transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .site-header.scrolled{
+      background:rgba(5,18,34,.28);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+      border-color:rgba(255,255,255,.08);
+    }
+    .nav{
+      width:min(1180px,92%);
+      margin:auto;
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:12px;
+      min-width:max-content;
+      font-weight:800;
+      letter-spacing:-.03em;
+    }
+    .brand-mark{
+      width:44px;height:44px;
+      border-radius:12px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#f5f9ff 0%,#c7ff7a 25%,#82d819 42%,#0e5a9c 100%);
+      color:#06213d;
+      box-shadow:0 12px 26px rgba(122,219,29,.22);
+      font-weight:950;
+      font-size:15px;
+      border:1px solid rgba(255,255,255,.22);
+      flex-shrink:0;
+    }
+    .brand span{
+      font-size:1.02rem;
+      color:#f7fbff;
+    }
+    .brand small{
+      display:block;
+      color:#a5bfd6;
+      font-weight:600;
+      font-size:.62rem;
+      letter-spacing:.02em;
+      margin-top:2px;
+    }
+    .nav-links,
+    .nav-cta,
+    .menu-toggle{
+      display:none!important;
+    }
+
+    .hero{
+      position:relative;
+      display:grid;
+      place-items:center;
+      margin-top:0;
+      height:500px;
+      width:100%;
+      background:
+        linear-gradient(180deg, rgba(6,20,35,0.96) 0%, rgba(7,24,43,0.98) 100%),
+        radial-gradient(circle at 50% 18%, rgba(146, 205, 255, 0.13), transparent 26%);
+      overflow:hidden;
+      isolation:isolate;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(90deg, rgba(10,26,44,0.06) 0%, rgba(10,26,44,0.04) 50%, rgba(10,26,44,0.08) 100%),
+        radial-gradient(circle at 50% 80%, rgba(122,219,29,.08), transparent 22%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      width:min(980px, 88vw);
+      max-width:100%;
+      padding:0;
+      text-align:center;
+      z-index:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .hero-content{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      text-align:center;
+      padding-top:12px;
+    }
+    .hero-kicker{
+      font-size:0.68rem;
+      font-weight:800;
+      letter-spacing:0.22em;
+      text-transform:uppercase;
+      color:#d6ff89;
+      opacity:0.95;
+    }
+    .hero h1{
+      margin:0;
+      font-family:"Libre Baskerville", "Cormorant Garamond", Georgia, serif;
+      font-weight:700;
+      letter-spacing:-.06em;
+      line-height:0.9;
+      font-size:clamp(2.3rem, 4vw, 4.9rem);
+      color:#f5fbff;
+      text-transform:uppercase;
+      text-shadow:0 10px 28px rgba(0,0,0,.18);
+      display:block;
+      text-align:center;
+      max-width:100%;
+      white-space:normal;
+      word-break:keep-all;
+      overflow-wrap:normal;
+    }
+    .hero-title-main{display:inline-block; text-align:center;}
+    .hero-title-main em{
+      font-style:italic;
+      color:#d5ff7a;
+      font-weight:700;
+      display:inline-block;
+    }
+    .hero-tag{
+      margin:0;
+      letter-spacing:.12em;
+      font-weight:700;
+      font-size:clamp(.72rem,1vw,1rem);
+      line-height:1.5;
+      color:#edf5ff;
+      text-transform:none;
+      max-width:640px;
+      color:#eaf5ff;
+      opacity:0.96;
+    }
+    .hero-tag::before{
+      content:"";
+      display:block;
+      width:clamp(42px,5vw,72px);
+      height:2px;
+      border-radius:2px;
+      margin:0 auto 14px;
+      background:linear-gradient(90deg, rgba(184,255,89,0), #baf74e);
+    }
+    .hero-tag span{color:#baf74e}
+    .hero-sub{
+      margin:0;
+      max-width:38em;
+      font-size:clamp(.98rem,1.25vw,1.14rem);
+      line-height:1.7;
+      color:#edf4ff;
+      text-shadow:0 2px 18px rgba(0,0,0,.25);
+      font-weight:500;
+      opacity:0.94;
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        height:420px;
+      }
+      .hero-content{
+        gap:14px;
+      }
+      .hero-kicker{
+        font-size:0.62rem;
+        letter-spacing:0.18em;
+      }
+      .hero h1{
+        font-size:clamp(1.9rem, 8vw, 3rem);
+        letter-spacing:-.045em;
+        line-height:0.92;
+        white-space:normal;
+      }
+      .hero-tag{
+        font-size:0.72rem;
+        letter-spacing:0.08em;
+      }
+      .hero-sub{
+        font-size:0.96rem;
+        line-height:1.65;
+      }
+      .hero-inner{
+        width:min(86vw, 540px);
+      }
+    }
+
+    section{scroll-margin-top:90px}
+    .section{
+      width:min(1180px,92%);
+      margin:auto;
+      padding:95px 0;
+    }
+    .section.first{padding-top:18px;padding-bottom:34px}
+    .section-head{
+      max-width:760px;
+      margin:0 auto 36px;
+      text-align:center;
+    }
+    .kicker{
+      color:var(--green-2);
+      font-size:.74rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:10px;
+    }
+    h2{
+      margin:0 0 12px;
+      font-family:"Fraunces", Georgia, "Times New Roman", serif;
+      font-weight:500;
+      letter-spacing:-.03em;
+      line-height:1.1;
+      font-size:clamp(2.2rem,3vw,3.1rem);
+    }
+    .lead{
+      color:#c1d5eb;
+      line-height:1.72;
+      margin:0;
+      font-size:1.04rem;
+    }
+
+    .docs-section{
+      background:
+        radial-gradient(circle at 12% 0%, rgba(14,90,156,.14), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(122,219,29,.09), transparent 24%);
+    }
+    .docs-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      width:min(760px, 92%);
+      margin:0 auto;
+    }
+    .doc-card{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-height:104px;
+      padding:17px 18px;
+      border-radius:18px;
+      background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 14px 30px rgba(0,0,0,.08);
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .doc-card::before{
+      content:"";
+      position:absolute;left:0;top:0;bottom:0;width:4px;
+      background:linear-gradient(180deg, var(--green) 0%, #55b6ff 100%);
+      transform:scaleY(0);
+      transform-origin:center;
+      transition:transform .25s ease;
+    }
+    .doc-card:hover,
+    .doc-card:focus-visible{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,.1);
+      border-color:rgba(184,255,89,.34);
+      box-shadow:0 18px 40px rgba(0,0,0,.18);
+    }
+    .doc-card:hover::before,
+    .doc-card:focus-visible::before{transform:scaleY(1)}
+    .doc-card:active,
+    .doc-card.clicked{
+      transform:scale(.985);
+      box-shadow:0 0 0 2px rgba(184,255,89,.22),0 18px 34px rgba(0,0,0,.18);
+    }
+    .doc-icon{
+      flex:0 0 46px;
+      width:46px;height:46px;
+      display:grid;place-items:center;
+      border-radius:15px;
+      background:linear-gradient(145deg, rgba(122,219,29,.18), rgba(14,90,156,.18));
+      border:1px solid rgba(255,255,255,.08);
+      color:#ebffd8;
+      font-size:1.15rem;
+      font-weight:800;
+    }
+    .doc-card > div:nth-child(2){min-width:0}
+    .doc-card h3{
+      margin:0 0 4px;
+      font-size:1.07rem;
+      letter-spacing:-.02em;
+    }
+    .doc-card p{
+      margin:0;
+      color:#9bb3c9;
+      font-size:.82rem;
+      line-height:1.45;
+    }
+    .arrow{
+      margin-left:auto;
+      color:#9caec6;
+      font-size:1.15rem;
+      transition:transform .2s ease, color .2s ease;
+    }
+    .doc-card:hover .arrow{color:var(--green-2);transform:translateX(4px)}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:32px 0 40px;
+      background:#03162d;
+    }
+    .footer-inner{
+      width:min(1180px,92%);
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      align-items:center;
+    }
+    .footer-brand{font-weight:850}
+    .footer-brand small{display:block;color:#8198b0;font-weight:500;margin-top:4px}
+    .footer-note{color:#8198b0;font-size:.78rem;text-align:right;line-height:1.6}
+
+    .toast{
+      position:fixed;z-index:2000;
+      left:50%;bottom:25px;
+      transform:translate(-50%,20px);
+      opacity:0;pointer-events:none;
+      padding:11px 16px;border-radius:12px;
+      background:rgba(10,39,62,.96);
+      border:1px solid rgba(184,255,89,.32);
+      box-shadow:0 18px 40px rgba(0,0,0,.30);
+      color:#ebffd8;font-size:.8rem;font-weight:750;
+      transition:.25s ease;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media (max-width:900px){
+      .nav-links{
+        position:absolute;top:78px;left:4%;right:4%;
+        display:none;flex-direction:column;align-items:stretch;
+        padding:10px;
+        background:rgba(4,18,40,.97);
+        border:1px solid var(--line);
+        border-radius:18px;
+        box-shadow:var(--shadow);
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:13px 15px}
+      .menu-toggle{display:block}
+      .hero{min-height:500px}
+      .hero-inner{left:50%;right:auto;transform:translate(-50%, -50%)}
+      .docs-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:720px){
+      .hero{
+        min-height:440px;
+        background-position:65% center;
+      }
+      .hero-inner{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:min(86vw, 560px);
+        padding:0;
+        text-align:center;
+        transform:translate(-50%, -50%);
+      }
+      .hero-inner::before{display:none}
+      .hero h1{font-size:clamp(2.1rem, 9vw, 3.1rem); line-height:0.9; letter-spacing:-.045em;}
+      .hero-tag{margin-top:12px;letter-spacing:.14em; font-size:.76rem}
+      .hero-tag::before{margin:0 auto 12px}
+      .hero-sub{margin-top:12px;font-size:1rem}
+      .section.first{padding-top:34px;padding-bottom:52px}
+      .section-head{margin-bottom:26px}
+      .docs-grid{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .footer-note{text-align:left}
+    }
+
+    @media (max-width:600px){
+      .nav{height:68px}
+      .site-header{background:rgba(4,18,40,.9)}
+      .nav-links{top:68px}
+      .brand span{font-size:.9rem}
+      .brand small{font-size:.55rem}
+      .hero{margin-top:68px;min-height:380px}
+      .hero h1{font-size:clamp(2rem, 9vw, 2.7rem)}
+      .hero-tag{font-size:.7rem;letter-spacing:.12em}
+      .hero-sub{font-size:.92rem;line-height:1.6}
+      .section{padding:74px 0}
+      .doc-card{min-height:94px;padding:15px 16px}
+      .doc-card h3{font-size:1rem}
+      .doc-card p{font-size:.8rem}
+    }
+  </style>
+
+
+
+  <header class="site-header" id="header">
+    <nav class="nav">
+      <a class="brand" href="#beranda" aria-label="VA3-Feed Beranda">
+        <div class="brand-mark">VA³</div>
+        <div>
+          <span>VA3-Feed</span>
+          <small>Varuna Aquaculture Triple-Impact Feed</small>
+        </div>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-inner reveal">
+        <div class="hero-content">
+          <div class="hero-kicker">Sustainable feed innovation</div>
+          <h1 class="hero-title">
+            <span class="hero-title-main">Varuna <em>Aquaculture</em></span>
+          </h1>
+          <p class="hero-tag">Pakan Ikan Berkualitas <span>dari Limbah Agrikultur</span></p>
+          <p class="hero-sub">
+            Solusi cerdas untuk budidaya ikan yang lebih berkelanjutan melalui pemanfaatan
+            limbah organik lokal menjadi pakan ikan bernilai tambah.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section first docs-section" id="dokumen">
+      <div class="section-head reveal">
+        <div class="kicker">Halaman Utama</div>
+        <h2>Folder Proyek</h2>
+        <p class="lead">
+          Pilih menu untuk membuka folder Google Drive terkait administrasi,
+          proposal, keuangan, kegiatan, data, luaran, dokumentasi, panduan, dan data mahasiswa.
+        </p>
+      </div>
+
+      <div class="docs-grid">
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1GZ-IwJCh3aZ6jo2fe2wKqdHUT1Ge69ja?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Administrasi">
+          <div class="doc-icon">▤</div><div><h3>Administrasi</h3><p>Dokumen administrasi proyek</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1UmV50JybgM85QH354moPq4whTG1RYFRQ?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Proposal">
+          <div class="doc-icon">▧</div><div><h3>Proposal</h3><p>Proposal dan bahan pengajuan</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/142edk7WS0f0Ony7Akyv0Le7TJJpNluH8?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Keuangan">
+          <div class="doc-icon">Rp</div><div><h3>Keuangan</h3><p>Dokumen dan monitoring keuangan</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1dv7nivVjTFO7yp2VcQpnTku8go2tnHSd?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Kegiatan">
+          <div class="doc-icon">✦</div><div><h3>Kegiatan</h3><p>Pelaksanaan dan agenda kegiatan</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1th1h1GDZ6tlLhiS9ubt4PpcR3TxPeJgT?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Data">
+          <div class="doc-icon">▥</div><div><h3>Data</h3><p>Data penelitian dan pengujian</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1kLh1h9R46dA8uPzlHodvrxwKfd-XJYrx?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Luaran">
+          <div class="doc-icon">↗</div><div><h3>Luaran</h3><p>Publikasi, HKI, produk, dan luaran</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1e3D08tyNVsgloFrvVn6Rt8Q-P8FDjAq5?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Dokumentasi">
+          <div class="doc-icon">▣</div><div><h3>Dokumentasi</h3><p>Foto, video, dan dokumentasi kegiatan</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1I1rbq5RBHKSWjnbQiWV5B4GNAsN5Weoz?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Panduan Prime Step">
+          <div class="doc-icon">?</div><div><h3>Panduan Prime Step</h3><p>Panduan dan referensi program</p></div><span class="arrow">→</span>
+        </a>
+        <a class="doc-card reveal" href="https://drive.google.com/drive/folders/1iM1XC3-UUE5aTK40qTMw7cwzZupmaNHW?usp=drive_link" target="_blank" rel="noopener noreferrer" data-name="Data Mahasiswa">
+          <div class="doc-icon">⌁</div><div><h3>Data Mahasiswa</h3><p>Dokumen dan data mahasiswa</p></div><span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        VA3-Feed
+        <small>Varuna Aquaculture Triple-Impact Feed</small>
+      </div>
+      <div class="footer-note">
+        Dari Limbah Menuju Pakan Berkualitas<br>
+        untuk Masa Depan Perikanan
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Membuka dokumen…</div>
+
+  <script>
+    const header = document.getElementById('header');
+    const toggle = document.getElementById('menuToggle');
+    const toast = document.getElementById('toast');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 15);
+    });
+
+    document.querySelectorAll('.doc-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('clicked');
+        toast.textContent = 'Membuka ' + card.dataset.name + '…';
+        toast.classList.add('show');
+        setTimeout(() => {
+          card.classList.remove('clicked');
+          toast.classList.remove('show');
+        }, 900);
+      });
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
+
+
+
+</body></html>
